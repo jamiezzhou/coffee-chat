@@ -5,10 +5,9 @@ import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import Homepage from './pages/homepage/Homepage';
 
 import Auth from './pages/Auth';
-import AdvisorProfile from './pages/advisorRegistration/AdvisorProfile';
 import BookAppointment from './pages/appointment/BookAppointment';
 import TestFirebaseAuth from './pages/TestFirebaseAuthentication';
-import Register from './pages/Register/register';
+import Register from './pages/register/register';
 
 function App() {
     // return (
