@@ -21,6 +21,12 @@ function MainMenu() {
         }
     };
 
+    const handleAccountClick = () => {
+        // Handle the account button click here
+        // For example, navigate to the account page or open a dropdown menu
+        console.log("Account icon clicked!");
+    };
+
 
     return (
         <div className="container">
@@ -32,10 +38,9 @@ function MainMenu() {
                     <a href="/about">About</a>
                     <a href="/contact">Contact</a>
                 </nav>
-                <div className="account-icon">
-                    {/* Account icon */}
+                <button onClick={handleAccountClick} className="account-button">
                     <img src={accountImage} alt="Account" />
-                </div>
+                </button>
             </header>
 
             {/* Main Body */}
