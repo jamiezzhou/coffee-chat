@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import './register.css'; 
+import { collection, addDoc } from 'firebase/firestore';
+import { db } from '../../firebase'; // Assuming you've set up your Firestore instance in firebase.js
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +13,8 @@ const Register = () => {
     confirmPassword: '',
   });
 
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -18,11 +23,32 @@ const Register = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(formData);
-    // Here you can handle the submission of the form, e.g., send it to a server
-  };
+    if (formData.password !== formData.confirmPassword) {
+      alert('Password and confirmation password do not match!');
+      return; // Exit the function early
+  }
+
+    // Determine the collection based on the role
+    const targetCollection = formData.role === 'student' ? 'Advisees' : 'Advisors';
+
+    try {
+      // Add the formData to the appropriate collection
+      const advisorsCollection = collection(db, targetCollection);
+      await addDoc(advisorsCollection, {
+        username: formData.username,
+        email: formData.email,
+        password: formData.password, // Note: Storing passwords in plain text is not secure. Consider using Firebase Authentication.
+        // Add any other fields you want to store
+      });
+      alert('Registration successful!');
+      navigate('/mainmenu');
+    } catch (error) {
+      alert('Error registering: ', error.message);
+    }
+};
 
   return (
     <div className="register-container">
