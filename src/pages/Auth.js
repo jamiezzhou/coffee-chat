@@ -3,13 +3,16 @@
 import React, { useState } from 'react';
 import { auth } from '../firebase';
 
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+
 function Auth() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const auth = getAuth();
 
     const register = async () => {
         try {
-            await auth.createUserWithEmailAndPassword(email, password);
+            await createUserWithEmailAndPassword(auth, email, password);
             alert('Registration successful!');
         } catch (error) {
             alert(error.message);
@@ -18,7 +21,7 @@ function Auth() {
 
     const login = async () => {
         try {
-            await auth.signInWithEmailAndPassword(email, password);
+            await signInWithEmailAndPassword(auth, email, password);
             alert('Login successful!');
         } catch (error) {
             alert(error.message);

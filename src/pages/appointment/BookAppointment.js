@@ -1,5 +1,5 @@
 // src/components/BookAppointment.js
-import { collection, onSnapshot, query } from 'firebase/firestore';
+import { collection, onSnapshot, query, addDoc } from 'firebase/firestore';
 import React, { useState, useEffect } from 'react';
 import { db } from '../../firebase';  // Updated import
 
@@ -19,6 +19,11 @@ function BookAppointment() {
 
     const book = async () => {
         try {
+            const appointmentsCollection = collection(db, 'Appointments');
+            await addDoc(appointmentsCollection, {
+                advisorId: selectedAdvisor,
+                date
+            });
             alert('Appointment booked!');
         } catch (error) {
             alert(error.message);

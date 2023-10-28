@@ -1,7 +1,9 @@
 // src/components/AdvisorProfile.js
 
 import React, { useState } from 'react';
-import { db } from '../../firebase';  // Updated import
+import { db } from '../../firebase';
+import { collection, addDoc } from 'firebase/firestore';
+
 
 function AdvisorProfile() {
     const [name, setName] = useState('');
@@ -9,7 +11,8 @@ function AdvisorProfile() {
 
     const createProfile = async () => {
         try {
-            await db.collection('advisors').add({
+            const advisorsCollection = collection(db, 'Advisors');
+            await addDoc(advisorsCollection, {
                 name,
                 credentials
             });
@@ -18,6 +21,7 @@ function AdvisorProfile() {
             alert(error.message);
         }
     };
+    
 
     return (
         <div>
