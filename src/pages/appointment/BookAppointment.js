@@ -1,5 +1,5 @@
 // src/components/BookAppointment.js
-import { collection, onSnapshot, query } from 'firebase/firestore';
+import { collection, onSnapshot, query, addDoc } from 'firebase/firestore';
 import React, { useState, useEffect } from 'react';
 import { db } from '../../firebase';  // Updated import
 
@@ -9,11 +9,6 @@ function BookAppointment() {
     const [date, setDate] = useState('');
 
     useEffect(() => {
-        // db.collection('Advisors').onSnapshot((snapshot) => {
-        //     const advisorData = [];
-        //     snapshot.forEach((doc) => advisorData.push({ ...doc.data(), id: doc.id }));
-        //     setAdvisors(advisorData);
-        // });
         const q = query(collection(db, 'Advisors'));
         onSnapshot(q, (snapshot) => {
             const advisorData = [];
@@ -24,10 +19,11 @@ function BookAppointment() {
 
     const book = async () => {
         try {
-            // await db.collection('Appointments').add({
-            //     advisorId: selectedAdvisor,
-            //     date
-            // });
+            const appointmentsCollection = collection(db, 'Appointments');
+            await addDoc(appointmentsCollection, {
+                advisorId: selectedAdvisor,
+                date
+            });
             alert('Appointment booked!');
         } catch (error) {
             alert(error.message);
