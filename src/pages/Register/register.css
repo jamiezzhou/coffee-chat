@@ -1,0 +1,62 @@
+/* Register.css */
+
+
+
+.register-container {
+background-image: url('background3.png'); /* Path to your background image */
+  font-size: 30px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Adjust the height as needed to center the form vertically. */
+    
+  }
+  
+  .form-group {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px;
+    text-align: left;
+    
+    background-color: white; /* Make the form fields transparent */
+  padding: 15px;
+  border-radius: 5px;
+
+
+  }
+  
+  .registerForm select,
+  .registerForm input {
+      margin-bottom: 20px;
+      padding: 10px;
+      font-size: 16px; /* Increase font size here */
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+  }
+
+  .register-button {
+    /* width: 30px;
+    height: 15px; */
+    padding: 20px 40px; /* Adjust the padding to increase the button size */
+    font-size: 20px; /* Adjust the font size */
+    font-weight: bold; /* Make the text bold */
+    margin-left: 100px;
+    border: none; /* Remove the border */
+    background-color: #ffffff; /* Adjust the background color */
+    color: rgb(0, 0, 0); /* Adjust the text color */
+    cursor: pointer; /* Make it apparent that it’s clickable */
+    border-radius: 5px; /* Optional: to have rounded corners */
+}
+
+.register-button:hover {
+    background-color: #a881be; /* Add a hover effect */
+}
+  /* Additional styling for labels, inputs, and buttons can be added here */
+  

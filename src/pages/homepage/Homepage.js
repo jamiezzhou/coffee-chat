@@ -78,10 +78,9 @@ const Homepage = () => {
         to get started.
       </p>
       <div className="buttonContainer">
-        <Router>
+        
           <Link to="/Login" className="linkButton">Login</Link>
           <Link to="/Register" className="linkButton">Register</Link>
-        </Router>
       </div>
     </div>
   );
