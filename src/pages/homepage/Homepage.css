@@ -1,11 +1,12 @@
-/* Contents of Homepage.css */
+/* Homepage.css */
+/* 
 .container {
     text-align: center;
     padding: 50px;
   }
   
   .header {
-    color: rgba(255, 0, 72, 0.332);
+    color: rgb(43, 87, 110);
     font-weight: bold;
     font-size: 2em;
     margin-bottom: 20px;
@@ -22,7 +23,7 @@
   }
   
   .linkButton {
-    background-color: #4CAF50;
+    background-color: #95c2c9;
     color: white;
     border: none;
     padding: 15px 32px;
@@ -31,9 +32,69 @@
     display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
-    transition-duration: 0.4s;
+    transition: background-color 0.4s;
     cursor: pointer;
     border-radius: 12px;
     margin-bottom: 20px;
   }
+   */
+
+
+
+
+
+   /* Homepage.css */
   
+
+.container {
+    text-align: center;
+    padding: 50px;
+  }
+  .container {
+  text-align: center;
+  padding: 50px;
+  background-image: url('background.jpeg'); /* Path to your background image */
+  
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+  .header {
+    color: rgb(0, 0, 0);
+    font-family: 'Merriweather', Georgia, serif;
+    font-weight: bold;
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .paragraph {
+    margin-top: 40px;
+    margin-bottom: 80px;
+    margin-left: 120px; 
+    margin-right: 120px; 
+    font-size: larger;
+  }
+  
+  .buttonContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .linkButton {
+    background-color: #a3c1ce;
+    color: rgb(0, 0, 0);
+    border: none;
+    font-weight: bold;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    transition: background-color 0.4s;
+    cursor: pointer;
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }

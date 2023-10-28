@@ -1,3 +1,5 @@
+import './Homepage.css'; 
+
 // import React from 'react'; 
 // // import { Link } from 'react-router-dom'
 // import './Homepage.css'; 
@@ -33,65 +35,56 @@
   
 //   export default Homepage;
 
+// import React from 'react';
+// import './Homepage.css'; 
+// import { HashRouter as Router, Link } from 'react-router-dom';
+
+// const Homepage = () => {
+//   return (
+//     <div className="container">
+//       <h1 className="header">Are you a confused student or an Upperclassman?</h1>
+//       <p className="paragraph">
+//         Welcome to our platform! We understand that school can be challenging.
+//         Whether you are a newcomer trying to navigate your school life, or an upperclassman
+//         with vast experience, we have resources tailored just for you. Make a choice below
+//         to get started.
+//       </p>
+//       <div className="buttonContainer">
+//         <Router>
+//           <Link to="/student" className="linkButton">I'm a Confused Student</Link>
+//           <Link to="/upperclassman" className="linkButton">I'm an Upperclassman</Link>
+//         </Router>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Homepage;
+
+
+
 
 import React from 'react';
-import './Homepage.css'; 
 import { HashRouter as Router, Link } from 'react-router-dom';
 
 const Homepage = () => {
   return (
-    <div style={styles.container}>
-      <h1 style={styles.header}>Are you a confused student or an Upperclassman?</h1>
-      <p style={styles.paragraph}>
+    <div className="container">
+      <h1 className="header">Are you a confused student or an Upperclassman?</h1>
+      <p className="paragraph">
         Welcome to our platform! We understand that school can be challenging.
         Whether you are a newcomer trying to navigate your school life, or an upperclassman
         with vast experience, we have resources tailored just for you. Make a choice below
         to get started.
       </p>
-      <div style={styles.buttonContainer}>
+      <div className="buttonContainer">
         <Router>
-          <Link to="/student" style={styles.linkButton}>I'm a Confused Student</Link>
-          <Link to="/upperclassman" style={styles.linkButton}>I'm an Upperclassman</Link>
+          <Link to="/Login" className="linkButton">Login</Link>
+          <Link to="/Register" className="linkButton">Register</Link>
         </Router>
       </div>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    textAlign: 'center',
-    padding: '50px',
-  },
-  header: {
-    color: 'blue',
-    fontWeight: 'bold',
-    fontSize: '2em',
-    marginBottom: '20px',
-  },
-  paragraph: {
-    marginBottom: '40px',
-  },
-  buttonContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  linkButton: {
-    backgroundColor: '#4CAF50',
-    color: 'white',
-    border: 'none',
-    padding: '15px 32px',
-    textAlign: 'center',
-    textDecoration: 'none',
-    display: 'inline-block',
-    fontSize: '16px',
-    margin: '4px 2px',
-    transition: 'background-color 0.4s',
-    cursor: 'pointer',
-    borderRadius: '12px',
-    marginBottom: '20px',
-  },
 };
 
 export default Homepage;
