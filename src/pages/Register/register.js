@@ -44,7 +44,7 @@ const Register = () => {
         // Add any other fields you want to store
       });
       alert('Registration successful!');
-      navigate('/mainmenu');
+      navigate('/main');
     } catch (error) {
       alert('Error registering: ', error.message);
     }

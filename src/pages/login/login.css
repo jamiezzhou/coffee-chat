@@ -1,0 +1,55 @@
+/* login.css */
+
+
+
+.login-container {
+    background-image: url('background2.png'); /* Path to your background image */
+      font-size: 30px;
+      text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
+    
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh; /* Adjust the height as needed to center the form vertically. */
+        
+      }
+      
+      .form-group {
+        font-size: 20px;
+        font-weight: bold;
+        margin: 10px;
+        text-align: left;
+        
+        background-color: white; /* Make the form fields transparent */
+      padding: 15px;
+      border-radius: 5px;
+    
+    
+      }
+    
+     
+    
+      .login-button {
+        /* width: 30px;
+        height: 15px; */
+        padding: 20px 40px; /* Adjust the padding to increase the button size */
+        font-size: 20px; /* Adjust the font size */
+        font-weight: bold; /* Make the text bold */
+        margin-left: 125px;
+        border: none; /* Remove the border */
+        background-color: #ffffff; /* Adjust the background color */
+        color: rgb(0, 0, 0); /* Adjust the text color */
+        cursor: pointer; /* Make it apparent that it’s clickable */
+        border-radius: 5px; /* Optional: to have rounded corners */
+    }
+    
+    .register-button:hover {
+        background-color: #a881be; /* Add a hover effect */
+    }
+      /* Additional styling for labels, inputs, and buttons can be added here */
+      

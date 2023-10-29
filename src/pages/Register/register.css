@@ -30,16 +30,8 @@ background-image: url('background3.png'); /* Path to your background image */
 
 
   }
-  
-  .registerForm select,
-  .registerForm input {
-      margin-bottom: 20px;
-      padding: 10px;
-      font-size: 16px; /* Increase font size here */
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-  }
+
+ 
 
   .register-button {
     /* width: 30px;

@@ -64,8 +64,9 @@
     color: rgb(0, 0, 0);
     font-family: 'Merriweather', Georgia, serif;
     font-weight: bold;
-    font-size: 2em;
+    font-size: 55px;
     margin-bottom: 20px;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
   }
   
   .paragraph {
