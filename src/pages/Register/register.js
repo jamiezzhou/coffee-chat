@@ -3,6 +3,8 @@ import './register.css';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../../firebase'; // Assuming you've set up your Firestore instance in firebase.js
 import { useNavigate } from 'react-router-dom';
+import { getAuth, createUserWithEmailAndPassword} from 'firebase/auth';
+
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -25,24 +27,33 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const auth = getAuth();
     console.log(formData);
+
+    if(formData.password.length < 6) {
+      alert('Password must be more than 6 digits!')
+      return;
+    }
+
     if (formData.password !== formData.confirmPassword) {
       alert('Password and confirmation password do not match!');
       return; // Exit the function early
-  }
+    }
 
     // Determine the collection based on the role
     const targetCollection = formData.role === 'student' ? 'Advisees' : 'Advisors';
 
     try {
       // Add the formData to the appropriate collection
-      const advisorsCollection = collection(db, targetCollection);
-      await addDoc(advisorsCollection, {
+      const userCredential = await createUserWithEmailAndPassword(auth, formData.email, formData.password);
+      const user = userCredential.user;
+
+      const usersCollection = collection(db, targetCollection);
+      await addDoc(usersCollection, {
+        id: user.uid,
         username: formData.username,
         email: formData.email,
-        password: formData.password, // Note: Storing passwords in plain text is not secure. Consider using Firebase Authentication.
-        // Add any other fields you want to store
-      });
+        });
       alert('Registration successful!');
       navigate('/main');
     } catch (error) {

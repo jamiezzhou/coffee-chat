@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './login.css'; 
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    username: '',
+    email: '',
     password: '',
     confirmPassword: '',
   });
@@ -19,13 +20,18 @@ const Login = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
 
-    navigate('/main');
+    const auth = getAuth();
 
-    // Here you can handle the submission of the form, e.g., send it to a server
+    try {
+      await signInWithEmailAndPassword(auth, formData.email, formData.password);
+      alert('Login successful!');
+      navigate('/main');
+    } catch (error) {
+      alert('Email or password incorrect.');
+    }
   };
 
   return (
@@ -35,12 +41,12 @@ const Login = () => {
         
 
         <div className="form-group">
-          <label htmlFor="username">Username:</label>
+          <label htmlFor="email">Email:</label>
           <input
             type="text"
-            id="username"
-            name="username"
-            value={formData.username}
+            id="email"
+            name="email"
+            value={formData.email}
             onChange={handleChange}
             required
           />
